@@ -30,11 +30,11 @@ type FAQItem = {
 const FAQ: FAQItem[] = [
   {
     q: "What is the A-R-R-A Framework?",
-    a: "A-R-R-A is a human-centric ethical framework that sequences four stages—Art, Right, Respect, and Alignment—to interpret expression, preserve dignity, and guide ethical response under conditions of disagreement or conflict. It prevents premature judgment by requiring that understanding precede action.",
+    a: "A-R-R-A is a human-centric ethical framework that sequences four stages-Art, Right, Respect, and Alignment-to interpret expression, preserve dignity, and guide ethical response under conditions of disagreement or conflict. It prevents premature judgment by requiring that understanding precede action.",
   },
   {
     q: "Is this a philosophy, religion, or ideology?",
-    a: "None of the above. A-R-R-A is a secular ethical framework—a decision-making protocol. It doesn't prescribe what to believe, worship, or which political outcomes to pursue. It provides a structured method for processing expression and choosing ethical responses without requiring metaphysical commitments.",
+    a: "None of the above. A-R-R-A is a secular ethical framework-a decision-making protocol. It doesn't prescribe what to believe, worship, or which political outcomes to pursue. It provides a structured method for processing expression and choosing ethical responses without requiring metaphysical commitments.",
   },
   {
     q: "When was A-R-R-A developed?",
@@ -46,15 +46,15 @@ const FAQ: FAQItem[] = [
   },
   {
     q: 'What does "Art" mean in this context?',
-    a: "Art refers to any conscious human expression or practice—not just aesthetic work. This includes science, mathematics, governance, caregiving, athletics, emotional expression, and even harmful acts. The term draws from South Asian concepts of kala, where art denotes cultivated skill and embodied knowledge. By treating all human activity as “art,” the framework avoids premature moral categorization.",
+    a: "Art refers to any conscious human expression or practice-not just aesthetic work. This includes science, mathematics, governance, caregiving, athletics, emotional expression, and even harmful acts. The term draws from South Asian concepts of kala, where art denotes cultivated skill and embodied knowledge. By treating all human activity as “art,” the framework avoids premature moral categorization.",
   },
   {
     q: "How is this different from other conflict resolution frameworks?",
-    a: "Most frameworks jump directly from identifying a problem to proposing solutions or judgments. A-R-R-A inserts a mandatory “Respect” stage—disciplined inquiry into roots and causes—before any alignment decision is made. This buffer prevents reactive escalation and addresses one of the primary drivers of radicalization: the collapse of understanding into immediate judgment.\n\nA-R-R-A also explicitly resolves the “tolerance paradox” by separating dignity (Right) from alignment (ethical response). You can recognize someone's humanity while refusing association with harmful expression.",
+    a: "Most frameworks jump directly from identifying a problem to proposing solutions or judgments. A-R-R-A inserts a mandatory “Respect” stage-disciplined inquiry into roots and causes-before any alignment decision is made. This buffer prevents reactive escalation and addresses one of the primary drivers of radicalization: the collapse of understanding into immediate judgment.\n\nA-R-R-A also explicitly resolves the “tolerance paradox” by separating dignity (Right) from alignment (ethical response). You can recognize someone's humanity while refusing association with harmful expression.",
   },
   {
     q: 'What problem does the "Alignment" stage solve?',
-    a: 'The 2026 refinement transformed "Appreciation" (an outcome) into "Alignment" (a choice mechanism). This allows the framework to handle harmful expression, incompatible values, and boundary-setting without collapsing into relativism or authoritarian exclusion. Alignment operates on a spectrum from full collaboration to active resistance—all while preserving human dignity.',
+    a: 'The 2026 refinement transformed "Appreciation" (an outcome) into "Alignment" (a choice mechanism). This allows the framework to handle harmful expression, incompatible values, and boundary-setting without collapsing into relativism or authoritarian exclusion. Alignment operates on a spectrum from full collaboration to active resistance-all while preserving human dignity.',
   },
   {
     q: "Who can use A-R-R-A?",
@@ -70,15 +70,15 @@ const FAQ: FAQItem[] = [
   },
   {
     q: "Can A-R-R-A handle harmful or dangerous expression?",
-    a: "Yes. The framework explicitly acknowledges harmful, destructive, or inhuman expressions exist. Such expressions can be critiqued, abandoned, opposed, or defended against—without erasing the humanity of those who produce them. Harm is addressed at the level of expression and impact, not identity or existence. Counter-Alignment allows active resistance while maintaining the Right stage's baseline dignity.",
+    a: "Yes. The framework explicitly acknowledges harmful, destructive, or inhuman expressions exist. Such expressions can be critiqued, abandoned, opposed, or defended against-without erasing the humanity of those who produce them. Harm is addressed at the level of expression and impact, not identity or existence. Counter-Alignment allows active resistance while maintaining the Right stage's baseline dignity.",
   },
   {
     q: 'Does "Respect" mean I have to agree with or accept everything?',
-    a: "No. Respect in A-R-R-A is defined precisely as root recognition—disciplined inquiry into causes, conditions, histories, and formative contexts. It's not empathy as sentiment or acceptance as agreement. It's a methodological pause that prevents reactive judgment. Understanding roots does not mean endorsing outcomes.",
+    a: "No. Respect in A-R-R-A is defined precisely as root recognition-disciplined inquiry into causes, conditions, histories, and formative contexts. It's not empathy as sentiment or acceptance as agreement. It's a methodological pause that prevents reactive judgment. Understanding roots does not mean endorsing outcomes.",
   },
   {
     q: "What if two people apply A-R-R-A and still disagree?",
-    a: "That's expected and acceptable. A-R-R-A does not dissolve fundamental incompatibilities—it civilizes them. Two people may understand each other's roots (Respect) and still choose different alignments (one person: non-alignment; another: counter-alignment). The framework prevents dehumanization during disagreement; it doesn't eliminate disagreement itself.",
+    a: "That's expected and acceptable. A-R-R-A does not dissolve fundamental incompatibilities-it civilizes them. Two people may understand each other's roots (Respect) and still choose different alignments (one person: non-alignment; another: counter-alignment). The framework prevents dehumanization during disagreement; it doesn't eliminate disagreement itself.",
   },
   {
     q: "Can I use A-R-R-A in my organization or project?",
@@ -90,7 +90,7 @@ const FAQ: FAQItem[] = [
   },
   {
     q: "What if I want to use A-R-R-A commercially?",
-    a: "For commercial use—such as consulting services, training programs, proprietary implementations, or for-profit products—please contact hasitha@theroifirm.com to discuss licensing arrangements.",
+    a: "For commercial use-such as consulting services, training programs, proprietary implementations, or for-profit products-please contact hasitha@theroifirm.com to discuss licensing arrangements.",
   },
   {
     q: "Can I create training materials based on A-R-R-A?",
@@ -106,7 +106,7 @@ const FAQ: FAQItem[] = [
   },
   {
     q: "What does the A-R-R-A symbol represent?",
-    a: "The symbol is a bounded field (circle) with a central point—a widely-used structure across civilizational contexts. In A-R-R-A, it represents that human expression originates from presence prior to evaluation. The circle represents a complete system without hierarchy; the central point represents origin and presence. This reflects the framework's radial logic: dignity and understanding precede judgment.",
+    a: "The symbol is a bounded field (circle) with a central point-a widely-used structure across civilizational contexts. In A-R-R-A, it represents that human expression originates from presence prior to evaluation. The circle represents a complete system without hierarchy; the central point represents origin and presence. This reflects the framework's radial logic: dignity and understanding precede judgment.",
   },
   {
     q: "Why is red used in the symbol?",
@@ -118,15 +118,15 @@ const FAQ: FAQItem[] = [
   },
   {
     q: "What traditions influenced A-R-R-A?",
-    a: "The framework resonates with patterns found in recognition theory (Hegel, Honneth), restorative justice, and Eastern notions of causality and dependent origination—but it does not adopt their metaphysical commitments. A-R-R-A emerged primarily from lived practice and was later recognized to align with these traditions without being derived from them.",
+    a: "The framework resonates with patterns found in recognition theory (Hegel, Honneth), restorative justice, and Eastern notions of causality and dependent origination-but it does not adopt their metaphysical commitments. A-R-R-A emerged primarily from lived practice and was later recognized to align with these traditions without being derived from them.",
   },
   {
     q: "Is this connected to Buddhist or Hindu philosophy?",
-    a: "There are parallels—particularly in the emphasis on understanding causes and conditions (Respect stage) and skillful response (Alignment stage)—but A-R-R-A is secular and does not require any religious belief or practice. The framework is designed to be usable by people of any faith tradition or none.",
+    a: "There are parallels-particularly in the emphasis on understanding causes and conditions (Respect stage) and skillful response (Alignment stage)-but A-R-R-A is secular and does not require any religious belief or practice. The framework is designed to be usable by people of any faith tradition or none.",
   },
   {
     q: 'What is the relationship to South Asian concepts of "kala"?',
-    a: "The definition of “Art” in A-R-R-A draws inspiration from South Asian epistemologies where kala denotes cultivated skill, disciplined practice, and embodied knowledge—not just aesthetic ornamentation. Historically, practitioners (including rulers) were expected to master multiple kalas (the 64 arts tradition). This broader conception of art as practice informs the framework's universal starting point.",
+    a: "The definition of “Art” in A-R-R-A draws inspiration from South Asian epistemologies where kala denotes cultivated skill, disciplined practice, and embodied knowledge-not just aesthetic ornamentation. Historically, practitioners (including rulers) were expected to master multiple kalas (the 64 arts tradition). This broader conception of art as practice informs the framework's universal starting point.",
   },
   {
     q: "Do you offer training or workshops on A-R-R-A?",
@@ -281,23 +281,27 @@ export default function HomePage() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href={LINKS.paperRead}
-                  className="rounded-xl bg-[#6B1F2B] px-5 py-3 text-sm font-medium text-[#F6F1E7] hover:opacity-90 transition"
-                >
-                  Read here
-                </Link>
-                <a
-                  href={LINKS.paperPdf}
-                  className="rounded-xl border border-[#121212]/15 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
-                >
-                  Download PDF
-                </a>
-              </div>
+  <Link
+    href={LINKS.paperRead}
+    className="rounded-xl bg-[#6B1F2B] px-5 py-3 text-sm font-medium text-[#F6F1E7] hover:opacity-90 transition"
+  >
+    Read here
+  </Link>
 
-              <p className="mt-6 text-xs text-[#121212]/60">
-                © Hasitha Jayathilaka, 2012–2026 • CC BY-NC-ND 4.0
-              </p>
+  <a
+    href={LINKS.paperPdf}
+    target="_blank"
+    rel="noreferrer"
+    download="ARRA-Framework-2012-2026.pdf"
+    className="rounded-xl border border-[#121212]/15 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
+  >
+    Download PDF
+  </a>
+</div>
+
+<p className="mt-6 text-xs text-[#121212]/60">
+  © Hasitha Jayathilaka, 2012–2026 • CC BY-NC-ND 4.0
+</p>
             </div>
           </div>
 
