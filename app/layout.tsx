@@ -28,10 +28,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+import Script from "next/script";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+          <body>{children}</body>
     </html>
   );
 }

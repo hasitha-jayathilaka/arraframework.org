@@ -1,6 +1,7 @@
 // src/app/page.tsx
 "use client";
 
+
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -10,12 +11,152 @@ const LINKS = {
   paperPdf: "/papers/arra-framework.pdf",
   semioticsRead: "/symbol-semiotics",
   semioticsPdf: "/papers/arra-symbol-semiotics.pdf",
+  faq: "#faq",
+  privacy: "/privacy",
+  terms: "/terms",
   archivist: "https://www.thearchivistgame.art/",
   instagram: "https://www.instagram.com/hsjayathilaka",
   linkedin: "https://www.linkedin.com/in/hsjayathilaka",
   facebook: "https://www.facebook.com/hsjayathilaka",
+  portfolio: "https://hasithajayathilaka.com/",
   email: "hasitha@theroifirm.com",
 };
+
+type FAQItem = {
+  q: string;
+  a: string;
+};
+
+const FAQ: FAQItem[] = [
+  {
+    q: "What is the A-R-R-A Framework?",
+    a: "A-R-R-A is a human-centric ethical framework that sequences four stages—Art, Right, Respect, and Alignment—to interpret expression, preserve dignity, and guide ethical response under conditions of disagreement or conflict. It prevents premature judgment by requiring that understanding precede action.",
+  },
+  {
+    q: "Is this a philosophy, religion, or ideology?",
+    a: "None of the above. A-R-R-A is a secular ethical framework—a decision-making protocol. It doesn't prescribe what to believe, worship, or which political outcomes to pursue. It provides a structured method for processing expression and choosing ethical responses without requiring metaphysical commitments.",
+  },
+  {
+    q: "When was A-R-R-A developed?",
+    a: 'The framework was first articulated in 2012 during an inquiry into the root causes of conflict and miscommunication in knowledge-rich societies. It was refined over fifteen years (2012-2026) through applied exposure across industries, cultures, and institutional contexts. The 2026 refinement formalized the final stage as "Alignment," transforming the framework from an aspirational model into a practical decision-making tool.',
+  },
+  {
+    q: "Why was it created?",
+    a: "To address a persistent problem: intelligent, creative societies continue to fracture not due to resource scarcity or ideological difference, but due to systematic failures in recognizing expression, dignity, and context. A-R-R-A emerged from studying why conflicts escalate and how understanding roots can reduce dehumanization.",
+  },
+  {
+    q: 'What does "Art" mean in this context?',
+    a: "Art refers to any conscious human expression or practice—not just aesthetic work. This includes science, mathematics, governance, caregiving, athletics, emotional expression, and even harmful acts. The term draws from South Asian concepts of kala, where art denotes cultivated skill and embodied knowledge. By treating all human activity as “art,” the framework avoids premature moral categorization.",
+  },
+  {
+    q: "How is this different from other conflict resolution frameworks?",
+    a: "Most frameworks jump directly from identifying a problem to proposing solutions or judgments. A-R-R-A inserts a mandatory “Respect” stage—disciplined inquiry into roots and causes—before any alignment decision is made. This buffer prevents reactive escalation and addresses one of the primary drivers of radicalization: the collapse of understanding into immediate judgment.\n\nA-R-R-A also explicitly resolves the “tolerance paradox” by separating dignity (Right) from alignment (ethical response). You can recognize someone's humanity while refusing association with harmful expression.",
+  },
+  {
+    q: 'What problem does the "Alignment" stage solve?',
+    a: 'The 2026 refinement transformed "Appreciation" (an outcome) into "Alignment" (a choice mechanism). This allows the framework to handle harmful expression, incompatible values, and boundary-setting without collapsing into relativism or authoritarian exclusion. Alignment operates on a spectrum from full collaboration to active resistance—all while preserving human dignity.',
+  },
+  {
+    q: "Who can use A-R-R-A?",
+    a: "Anyone. The framework is designed for individuals, organizations, institutions, policymakers, educators, platform moderators, and communities. It's applicable wherever expression, dignity, and ethical boundaries must coexist under conditions of disagreement.",
+  },
+  {
+    q: "What are some practical applications?",
+    a: "- Platform governance: Content moderation policies that preserve dignity while setting boundaries\n- Organizational conflict resolution: Workplace disputes, team disagreements, leadership decisions\n- Educational settings: Teaching critical thinking, empathy, and ethical reasoning\n- Policy development: Frameworks for pluralistic societies, human rights contexts\n- Community guidelines: Online communities, cooperative housing, civic organizations\n- Personal relationships: Navigating disagreements with family, friends, colleagues",
+  },
+  {
+    q: "How do I apply the Alignment spectrum?",
+    a: "The spectrum provides five modes of ethical response:\n\n1. Full Alignment - When expression aligns with your values: appreciate, collaborate, amplify\n2. Conditional Alignment - Engage with clear boundaries or constraints\n3. Limited Alignment - Observe without reinforcement or active participation\n4. Non-Alignment - Maintain respectful distance, refuse association\n5. Counter-Alignment - Actively resist harmful expression while preserving human dignity\n\nOrganizations can define different thresholds for each mode based on their context and risk tolerance.",
+  },
+  {
+    q: "Can A-R-R-A handle harmful or dangerous expression?",
+    a: "Yes. The framework explicitly acknowledges harmful, destructive, or inhuman expressions exist. Such expressions can be critiqued, abandoned, opposed, or defended against—without erasing the humanity of those who produce them. Harm is addressed at the level of expression and impact, not identity or existence. Counter-Alignment allows active resistance while maintaining the Right stage's baseline dignity.",
+  },
+  {
+    q: 'Does "Respect" mean I have to agree with or accept everything?',
+    a: "No. Respect in A-R-R-A is defined precisely as root recognition—disciplined inquiry into causes, conditions, histories, and formative contexts. It's not empathy as sentiment or acceptance as agreement. It's a methodological pause that prevents reactive judgment. Understanding roots does not mean endorsing outcomes.",
+  },
+  {
+    q: "What if two people apply A-R-R-A and still disagree?",
+    a: "That's expected and acceptable. A-R-R-A does not dissolve fundamental incompatibilities—it civilizes them. Two people may understand each other's roots (Respect) and still choose different alignments (one person: non-alignment; another: counter-alignment). The framework prevents dehumanization during disagreement; it doesn't eliminate disagreement itself.",
+  },
+  {
+    q: "Can I use A-R-R-A in my organization or project?",
+    a: "Yes, under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license. This means:\n\n- Attribution (BY): You must credit the framework and author\n- NonCommercial (NC): You cannot use it for commercial purposes without permission\n- NoDerivatives (ND): You cannot modify or create derivative versions",
+  },
+  {
+    q: 'What counts as "non-commercial" use?',
+    a: "Non-commercial use includes:\n- Academic research and teaching\n- Educational curricula and workshops\n- Internal organizational implementation (non-profits, government, public sector)\n- Policy development and civic initiatives\n- Personal or community application",
+  },
+  {
+    q: "What if I want to use A-R-R-A commercially?",
+    a: "For commercial use—such as consulting services, training programs, proprietary implementations, or for-profit products—please contact hasitha@theroifirm.com to discuss licensing arrangements.",
+  },
+  {
+    q: "Can I create training materials based on A-R-R-A?",
+    a: "Yes, for non-commercial educational purposes, with proper attribution. If you plan to sell training materials or offer paid workshops, please contact for commercial licensing.",
+  },
+  {
+    q: "How should I cite the framework?",
+    a: "For general reference:\nJayathilaka, W.A.H.S. (2012–2026). A-R-R-A Framework:\nArt → Right → Respect → Alignment.\nhttps://arraframework.org\n\nFor the full paper:\nJayathilaka, W.A.H.S. (2026). A-R-R-A Framework (2012-2026).\nRetrieved from https://arraframework.org/papers/arra-framework.pdf",
+  },
+  {
+    q: "Can I translate A-R-R-A into other languages?",
+    a: "Translations for non-commercial educational purposes are welcomed with proper attribution. Please contact hasitha@theroifirm.com to coordinate translation efforts and ensure conceptual accuracy.",
+  },
+  {
+    q: "What does the A-R-R-A symbol represent?",
+    a: "The symbol is a bounded field (circle) with a central point—a widely-used structure across civilizational contexts. In A-R-R-A, it represents that human expression originates from presence prior to evaluation. The circle represents a complete system without hierarchy; the central point represents origin and presence. This reflects the framework's radial logic: dignity and understanding precede judgment.",
+  },
+  {
+    q: "Why is red used in the symbol?",
+    a: "Red marks lineage and continuity, not urgency or provocation. It references inherited and embodied knowledge, ancestral continuity across generations, and practice-based transmission that survives beyond formal documentation. In South Asian knowledge traditions, learning is carried through disciplined practice and lived craft. Red signifies inheritance, not authority.",
+  },
+  {
+    q: "Can I use the symbol?",
+    a: "The geometric form (circle with central point) is an ancient, widely-used structure and is not owned by anyone. However, the specific visual design, color treatment, contextual association with the A-R-R-A Framework are protected under the CC BY-NC-ND 4.0 license. Use with proper attribution for non-commercial purposes is permitted.",
+  },
+  {
+    q: "What traditions influenced A-R-R-A?",
+    a: "The framework resonates with patterns found in recognition theory (Hegel, Honneth), restorative justice, and Eastern notions of causality and dependent origination—but it does not adopt their metaphysical commitments. A-R-R-A emerged primarily from lived practice and was later recognized to align with these traditions without being derived from them.",
+  },
+  {
+    q: "Is this connected to Buddhist or Hindu philosophy?",
+    a: "There are parallels—particularly in the emphasis on understanding causes and conditions (Respect stage) and skillful response (Alignment stage)—but A-R-R-A is secular and does not require any religious belief or practice. The framework is designed to be usable by people of any faith tradition or none.",
+  },
+  {
+    q: 'What is the relationship to South Asian concepts of "kala"?',
+    a: "The definition of “Art” in A-R-R-A draws inspiration from South Asian epistemologies where kala denotes cultivated skill, disciplined practice, and embodied knowledge—not just aesthetic ornamentation. Historically, practitioners (including rulers) were expected to master multiple kalas (the 64 arts tradition). This broader conception of art as practice informs the framework's universal starting point.",
+  },
+  {
+    q: "Do you offer training or workshops on A-R-R-A?",
+    a: "Yes. For organizational training, policy workshops, or institutional implementation support, please contact hasitha@theroifirm.com.",
+  },
+  {
+    q: "Can you help adapt A-R-R-A for our specific context?",
+    a: "Consultation for organizational adaptation, policy integration, and context-specific implementation is available. Contact hasitha@theroifirm.com to discuss your needs.",
+  },
+  {
+    q: "Is there a certification program?",
+    a: "Not currently, though this may be developed based on demand and to ensure quality implementation. If you're interested in becoming a certified A-R-R-A practitioner or trainer, please express your interest via the contact form.",
+  },
+  {
+    q: "Where can I discuss A-R-R-A with others?",
+    a: "Currently, discussions happen through direct contact and in contexts where the framework is being applied. A community platform or discussion forum may be established in the future. For now, reach out via hasitha@theroifirm.com if you're using A-R-R-A and want to connect with others.",
+  },
+  {
+    q: "Will the framework continue to evolve?",
+    a: "A-R-R-A's core insight (expression → dignity → root understanding → ethical response) is stable. However, linguistic precision, operational guidance, and applied examples may continue to develop based on real-world use. Any significant updates will be documented with clear version dating.",
+  },
+  {
+    q: "How do I stay informed about updates?",
+    a: "Currently, the canonical source is arraframework.org. Subscribe to updates by contacting hasitha@theroifirm.com and requesting to be added to the notification list for significant changes or new resources.",
+  },
+  {
+    q: "Can I contribute case studies or examples?",
+    a: "Yes. If you've applied A-R-R-A in a real-world context and want to share your experience (for educational purposes), please reach out. Documented case studies help others understand practical implementation.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -43,13 +184,6 @@ export default function HomePage() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <a
-            href="#framework"
-            className="rounded-xl border border-[#121212]/15 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
-          >
-            Framework
-          </a>
-
           <Link
             href={LINKS.paperRead}
             className="rounded-xl bg-[#6B1F2B] px-5 py-3 text-sm font-medium text-[#F6F1E7] hover:opacity-90 transition"
@@ -70,6 +204,13 @@ export default function HomePage() {
           >
             Symbol &amp; Semiotics
           </Link>
+
+          <a
+            href="#faq"
+            className="rounded-xl border border-[#121212]/15 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
+          >
+            FAQ
+          </a>
         </div>
 
         <Rule className="mt-12" />
@@ -121,7 +262,7 @@ export default function HomePage() {
         <Rule className="mt-12" />
       </section>
 
-      {/* PAPER SECTION (READ + DOWNLOAD) */}
+      {/* PAPER SECTION */}
       <section id="paper" className="mx-auto w-full max-w-5xl px-6 py-12">
         <SectionTitle
           kicker="PAPER"
@@ -178,17 +319,15 @@ export default function HomePage() {
         <Rule className="mt-12" />
       </section>
 
-      {/* SYMBOL & SEMIOTICS SECTION (LOGO + READ/DOWNLOAD) */}
+      {/* SYMBOL & SEMIOTICS */}
       <section id="symbol" className="mx-auto w-full max-w-5xl px-6 py-12">
         <div className="grid gap-10 md:grid-cols-12 md:items-center">
-          {/* Logo mark */}
           <div className="md:col-span-5 flex justify-center md:justify-start">
             <div className="relative flex h-48 w-48 items-center justify-center rounded-full border border-[#121212]/15 bg-[#FFFFFF]/60">
               <span className="h-3 w-3 rounded-full bg-[#6B1F2B]" />
             </div>
           </div>
 
-          {/* Text */}
           <div className="md:col-span-7">
             <p className="text-xs tracking-[0.28em] text-[#121212]/70">
               SYMBOL &amp; SEMIOTICS
@@ -200,9 +339,9 @@ export default function HomePage() {
 
             <p className="mt-5 text-sm leading-relaxed text-[#121212]/85 max-w-xl">
               The A-R-R-A mark is intentionally reduced: a bounded field with a
-              central point. It anchors the framework’s logic-expression is
-              acknowledged, dignity is preserved, roots are understood, and ethical
-              alignment is chosen.
+              central point - a widely-used symbolic structure adopted to express
+              the framework&apos;s logic. Expression is acknowledged, dignity is
+              preserved, roots are understood, and ethical alignment is chosen.
             </p>
 
             <p className="mt-4 text-sm leading-relaxed text-[#121212]/80 max-w-xl">
@@ -230,6 +369,95 @@ export default function HomePage() {
 
         <Rule className="mt-12" />
       </section>
+
+      {/* USE CASES */}
+      <section id="use-cases" className="mx-auto w-full max-w-5xl px-6 py-12">
+        <SectionTitle
+          kicker="USE CASES"
+          title="Where A-R-R-A is applied"
+          desc="Practical contexts where sequencing expression, dignity, root recognition, and alignment prevents escalation and improves governance."
+        />
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <Note
+            title="Platform governance policies"
+            body="Content moderation and enforcement logic that preserves dignity while setting boundaries."
+          />
+          <Note
+            title="Organizational conflict resolution"
+            body="Workplace disputes, team disagreements, leadership decisions, and mediation protocols."
+          />
+          <Note
+            title="Educational curriculum design"
+            body="Teaching ethical reasoning, critical thinking, and disciplined inquiry into roots and causes."
+          />
+          <Note
+            title="Community guidelines development"
+            body="Norms and decision rules for online/offline communities under disagreement."
+          />
+          <Note
+            title="Policy frameworks for pluralistic societies"
+            body="Public frameworks that handle value conflicts without dehumanization or forced unanimity."
+          />
+        </div>
+
+        <Rule className="mt-12" />
+      </section>
+
+      {/* HOW TO CITE */}
+      <section id="cite" className="mx-auto w-full max-w-5xl px-6 py-12">
+        <SectionTitle
+          kicker="HOW TO CITE"
+          title="Stable reference format"
+          desc="Use the following citation formats for general reference and for the full paper."
+        />
+
+        <div className="mt-8 grid gap-6 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <div className="rounded-2xl border border-[#121212]/12 bg-[#FFFFFF]/70 p-7">
+              <p className="text-sm font-semibold">General reference</p>
+              <pre className="mt-4 whitespace-pre-wrap rounded-xl border border-[#121212]/10 bg-[#F6F1E7] p-4 text-xs leading-relaxed text-[#121212]/85">
+{`Jayathilaka, W.A.H.S. (2012–2026). A-R-R-A Framework:
+Art → Right → Respect → Alignment.
+https://arraframework.org`}
+              </pre>
+            </div>
+          </div>
+
+          <div className="md:col-span-6">
+            <div className="rounded-2xl border border-[#121212]/12 bg-[#FFFFFF]/70 p-7">
+              <p className="text-sm font-semibold">For the full paper</p>
+              <pre className="mt-4 whitespace-pre-wrap rounded-xl border border-[#121212]/10 bg-[#F6F1E7] p-4 text-xs leading-relaxed text-[#121212]/85">
+{`Jayathilaka, W.A.H.S. (2026). A-R-R-A Framework (2012-2026).
+Retrieved from https://arraframework.org/papers/arra-framework.pdf`}
+              </pre>
+
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href={LINKS.paperPdf}
+                  className="rounded-xl border border-[#121212]/15 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
+                >
+                  Download the canonical PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <Rule className="mt-12" />
+      </section>
+
+      {/* FAQ */}
+<section id="faq" className="mx-auto w-full max-w-5xl px-6 py-12">
+  <SectionTitle
+    kicker="FAQ"
+    title="Common questions"
+    desc="Click a question to expand the answer."
+  />
+
+  <FAQAccordion initialVisibleCount={5} />
+  <Rule className="mt-12" />
+</section>
 
       {/* AUTHOR + CONTACT */}
       <section id="author" className="mx-auto w-full max-w-5xl px-6 py-12">
@@ -292,7 +520,16 @@ export default function HomePage() {
                 </p>
               </div>
 
+              {/* Portfolio + socials */}
               <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={LINKS.portfolio}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-xl border border-[#121212]/15 px-4 py-2 text-sm hover:bg-[#121212]/5 transition"
+                >
+                  Portfolio ↗
+                </a>
                 <a
                   href={LINKS.linkedin}
                   target="_blank"
@@ -334,6 +571,15 @@ export default function HomePage() {
 }
 
 function SiteHeader() {
+  const navItems = [
+    { label: "Paper", href: LINKS.paperRead, type: "link" as const },
+    { label: "Symbol & Semiotics", href: LINKS.semioticsRead, type: "link" as const },
+    { label: "FAQ", href: "#faq", type: "anchor" as const },
+    { label: "Contact", href: "#contact", type: "anchor" as const },
+  ];
+
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-20 border-b border-[#121212]/10 bg-[#F6F1E7]/85 backdrop-blur">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
@@ -351,6 +597,7 @@ function SiteHeader() {
           </div>
         </Link>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-5 md:flex">
           <Link
             href={LINKS.paperRead}
@@ -365,16 +612,10 @@ function SiteHeader() {
             Symbol &amp; Semiotics
           </Link>
           <a
-            href="#framework"
+            href="#faq"
             className="text-sm text-[#121212]/75 hover:text-[#121212] transition"
           >
-            Framework
-          </a>
-          <a
-            href="#author"
-            className="text-sm text-[#121212]/75 hover:text-[#121212] transition"
-          >
-            Author
+            FAQ
           </a>
           <a
             href="#contact"
@@ -383,7 +624,52 @@ function SiteHeader() {
             Contact
           </a>
         </nav>
+
+        {/* Mobile dropdown */}
+        <div className="md:hidden">
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex items-center justify-center rounded-xl border border-[#121212]/15 bg-[#FFFFFF]/50 px-4 py-2 text-sm font-medium hover:bg-[#121212]/5 transition"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+          >
+            Menu
+            <span className="ml-2 text-[#121212]/70">{open ? "▲" : "▼"}</span>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile panel */}
+      {open && (
+        <div id="mobile-nav" className="md:hidden border-t border-[#121212]/10">
+          <div className="mx-auto w-full max-w-5xl px-6 py-3">
+            <div className="grid gap-2">
+              {navItems.map((it) =>
+                it.type === "link" ? (
+                  <Link
+                    key={it.label}
+                    href={it.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[#121212]/10 bg-[#FFFFFF]/55 px-4 py-3 text-sm text-[#121212]/80 hover:bg-[#121212]/5 transition"
+                  >
+                    {it.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={it.label}
+                    href={it.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[#121212]/10 bg-[#FFFFFF]/55 px-4 py-3 text-sm text-[#121212]/80 hover:bg-[#121212]/5 transition"
+                  >
+                    {it.label}
+                  </a>
+                )
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
@@ -395,8 +681,7 @@ function SiteFooter() {
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs text-[#121212]/65">
-              © {new Date().getFullYear()} arraframework.org • © Hasitha Jayathilaka,
-              2012–2026 • CC BY-NC-ND 4.0
+              © 2012–2026 Hasitha Jayathilaka • arraframework.org • CC BY-NC-ND 4.0
             </p>
             <p className="mt-2 text-xs text-[#121212]/65">
               Contact:{" "}
@@ -407,28 +692,25 @@ function SiteFooter() {
                 {LINKS.email}
               </a>
             </p>
+
+            <p className="mt-3 text-xs text-[#121212]/60">
+              <Link className="underline underline-offset-4 hover:opacity-80" href={LINKS.privacy}>
+                Privacy Policy
+              </Link>{" "}
+              •{" "}
+              <Link className="underline underline-offset-4 hover:opacity-80" href={LINKS.terms}>
+                Terms of Use
+              </Link>{" "}
+              •{" "}
+              <a className="underline underline-offset-4 hover:opacity-80" href="#faq">
+                FAQ
+              </a>
+            </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-xs text-[#121212]/60">
-            <Link className="hover:text-[#121212]" href={LINKS.paperRead}>
-              Paper
-            </Link>
-            <Link className="hover:text-[#121212]" href={LINKS.semioticsRead}>
-              Symbol &amp; Semiotics
-            </Link>
-            <a className="hover:text-[#121212]" href="#framework">
-              Framework
-            </a>
-            <a className="hover:text-[#121212]" href="#author">
-              Author
-            </a>
-            <a className="hover:text-[#121212]" href="#contact">
-              Contact
-            </a>
-          </div>
+          {/* Removed the large footer nav list as requested */}
         </div>
-
-              </div>
+      </div>
     </footer>
   );
 }
@@ -466,10 +748,89 @@ function Rule({ className = "" }: { className?: string }) {
   return <div className={`h-px w-full bg-[#121212]/10 ${className}`} />;
 }
 
+function FAQAccordion({ initialVisibleCount = 5 }: { initialVisibleCount?: number }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleItems = showAll ? FAQ : FAQ.slice(0, initialVisibleCount);
+
+  // If user collapses back to 5, and currently-open item isn't in the first 5, close it.
+  function toggleShowAll() {
+    setShowAll((prev) => {
+      const next = !prev;
+      if (!next && openIndex !== null && openIndex >= initialVisibleCount) {
+        setOpenIndex(null);
+      }
+      return next;
+    });
+  }
+
+  return (
+    <div className="mt-8">
+      <div className="space-y-3">
+        {visibleItems.map((item, i) => {
+          const open = openIndex === i;
+          return (
+            <div
+              key={item.q}
+              className={`rounded-2xl border bg-[#FFFFFF]/70 transition ${
+                open ? "border-[#6B1F2B]/45" : "border-[#121212]/12"
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIndex(open ? null : i)}
+                className="flex w-full items-start justify-between gap-4 px-6 py-5 text-left"
+              >
+                <span className="text-sm font-medium text-[#121212]">{item.q}</span>
+                <span
+                  className={`mt-[2px] inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-sm transition ${
+                    open
+                      ? "border-[#6B1F2B]/50 text-[#6B1F2B]"
+                      : "border-[#121212]/15 text-[#121212]/70"
+                  }`}
+                  aria-hidden="true"
+                >
+                  {open ? "–" : "+"}
+                </span>
+              </button>
+
+              {open && (
+                <div className="px-6 pb-6">
+                  <div className="h-px w-full bg-[#121212]/10" />
+                  <div className="mt-4 rounded-xl border border-[#6B1F2B]/20 bg-[#F6F1E7] p-4">
+                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-[#121212]/82">
+                      {item.a}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {FAQ.length > initialVisibleCount && (
+        <div className="mt-6 flex items-center justify-center">
+          <button
+            type="button"
+            onClick={toggleShowAll}
+            className="rounded-xl border border-[#121212]/15 bg-[#FFFFFF]/55 px-5 py-3 text-sm font-medium hover:bg-[#121212]/5 transition"
+          >
+            {showAll ? "Show fewer" : `View all FAQ (${FAQ.length})`}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [agree, setAgree] = useState(false);
+
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
@@ -477,11 +838,12 @@ function ContactForm() {
 
   const canSubmit = useMemo(() => {
     return (
+      agree &&
       name.trim().length >= 2 &&
       email.trim().includes("@") &&
       message.trim().length >= 10
     );
-  }, [name, email, message]);
+  }, [agree, name, email, message]);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -499,21 +861,22 @@ function ContactForm() {
 
       if (!res.ok) {
         let data: any = null;
-let text = "";
+        let text = "";
 
-try {
-  data = await res.json();
-} catch {
-  text = await res.text().catch(() => "");
-}
+        try {
+          data = await res.json();
+        } catch {
+          text = await res.text().catch(() => "");
+        }
 
-throw new Error(data?.error || text || "Failed to send.");
+        throw new Error(data?.error || text || "Failed to send.");
       }
 
       setStatus("sent");
       setName("");
       setEmail("");
       setMessage("");
+      setAgree(false);
     } catch (err: any) {
       setStatus("error");
       setErrorMsg(err?.message || "Something went wrong.");
@@ -528,8 +891,9 @@ throw new Error(data?.error || text || "Failed to send.");
       <p className="text-xs tracking-[0.28em] text-[#121212]/70">CONTACT</p>
       <h3 className="mt-3 text-2xl font-semibold">Send a message</h3>
       <p className="mt-3 text-sm leading-relaxed text-[#121212]/80">
-        If you’re referencing the framework for research, policy, education, or
-        implementation, you can contact me here-or email{" "}
+        If you&apos;re referencing the framework for research, policy, education,
+        or implementation-or if you&apos;re interested in organizational adoption,
+        training, or collaboration -contact me here or email directly.{" "}
         <a
           className="underline underline-offset-4 hover:opacity-80"
           href={`mailto:${LINKS.email}`}
@@ -571,11 +935,33 @@ throw new Error(data?.error || text || "Failed to send.");
           />
         </Field>
 
+        {/* Agreement */}
+        <div className="flex items-start gap-3 rounded-xl border border-[#121212]/10 bg-[#F6F1E7] px-4 py-3">
+          <input
+            id="agree"
+            type="checkbox"
+            checked={agree}
+            onChange={(e) => setAgree(e.target.checked)}
+            className="mt-1 h-4 w-4 accent-[#6B1F2B]"
+          />
+          <label htmlFor="agree" className="text-sm text-[#121212]/80">
+            I agree to the{" "}
+            <Link className="underline underline-offset-4 hover:opacity-80" href={LINKS.privacy}>
+              Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link className="underline underline-offset-4 hover:opacity-80" href={LINKS.terms}>
+              Terms of Use
+            </Link>
+            .
+          </label>
+        </div>
+
         <div className="flex flex-wrap items-center gap-3">
           <button
             type="submit"
             disabled={!canSubmit || status === "sending"}
-            className="rounded-xl bg-[#6B1F2B] px-5 py-3 text-sm font-medium text-[#F6F1E7] disabled:opacity-50"
+            className="inline-flex rounded-xl bg-[#6B1F2B] px-5 py-3 text-sm font-medium text-[#F6F1E7] disabled:opacity-50"
           >
             {status === "sending" ? "Sending…" : "Send message"}
           </button>
@@ -596,9 +982,6 @@ throw new Error(data?.error || text || "Failed to send.");
             </span>
           )}
         </div>
-
-        <p className="text-xs text-[#121212]/55">
-                  </p>
       </form>
     </section>
   );
