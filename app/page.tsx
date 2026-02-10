@@ -498,8 +498,16 @@ function ContactForm() {
       });
 
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error || "Failed to send.");
+        let data: any = null;
+let text = "";
+
+try {
+  data = await res.json();
+} catch {
+  text = await res.text().catch(() => "");
+}
+
+throw new Error(data?.error || text || "Failed to send.");
       }
 
       setStatus("sent");
